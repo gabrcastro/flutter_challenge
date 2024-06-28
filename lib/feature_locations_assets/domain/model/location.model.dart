@@ -1,15 +1,24 @@
+import 'dart:ui';
+
 class LocationModel {
   String id;
-  String name;
   String? parentId;
+  String name;
+  List<dynamic>? children;
 
-  LocationModel({required this.id, required this.name, this.parentId});
+  LocationModel({
+    required this.id,
+    this.parentId,
+    required this.name,
+    this.children,
+  });
 
   factory LocationModel.fromJson(Map<String, dynamic> json) {
     return LocationModel(
       id: json['id'],
-      name: json['name'],
       parentId: json['parentId'],
+      name: json['name'],
+      children: (json['children'] as List?)?.map((child) => LocationModel.fromJson(child)).toList(),
     );
   }
 }

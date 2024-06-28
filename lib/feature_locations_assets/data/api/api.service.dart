@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:tractian_challenge/app/domain/model/company.model.dart';
 import 'package:tractian_challenge/core/constants.dart';
 import 'package:tractian_challenge/feature_locations_assets/domain/model/asset.model.dart';
 import 'package:tractian_challenge/feature_locations_assets/domain/model/location.model.dart';

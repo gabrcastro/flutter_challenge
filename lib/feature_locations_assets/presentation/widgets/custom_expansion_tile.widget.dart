@@ -7,6 +7,8 @@ class CustomExpansionTile extends StatefulWidget {
   final List<Widget> children;
   final bool isChild;
   final EdgeInsets tilePadding;
+  final bool? isCritic;
+  final bool? isEnergy;
 
   const CustomExpansionTile({super.key,
     required this.title,
@@ -14,6 +16,8 @@ class CustomExpansionTile extends StatefulWidget {
     required this.icon,
     required this.isChild,
     this.tilePadding = const EdgeInsets.only(left: 20.0),
+    this.isEnergy,
+    this.isCritic,
   });
 
   @override
@@ -45,6 +49,14 @@ class _CustomExpansionTileState extends State<CustomExpansionTile> {
                 Image(image: AssetImage(widget.icon), width: 15,),
                 const SizedBox(width: 10,),
                 widget.title,
+                 widget.isCritic == true
+                    ? Container(width: 30, height: 30, decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(100),
+                ),) : const SizedBox.shrink(),
+                widget.isEnergy == true ?
+                    const Icon(Icons.electric_bolt_rounded, color: Colors.green, size: 20.0,)
+                    : const SizedBox.shrink()
               ],
             ),
           ),

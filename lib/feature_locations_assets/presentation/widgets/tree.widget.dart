@@ -8,7 +8,27 @@ class TreeNode {
   List<TreeNode> children;
   bool isChild;
 
-  TreeNode({required this.title, required this.image, this.children = const [], this.isChild = false,});
+  String? id;
+  String? gatewayId;
+  String? locationId;
+  String? parentId;
+  String? sensorId;
+  String? sensorType;
+  String? status;
+
+  TreeNode({
+    required this.title,
+    required this.image,
+    this.children = const [],
+    this.isChild = false,
+    this.id,
+    this.gatewayId,
+    this.locationId,
+    this.parentId,
+    this.sensorId,
+    this.sensorType,
+    this.status,
+  });
 }
 
 class TreeView extends StatelessWidget {
@@ -50,6 +70,8 @@ class TreeNodeWidget extends StatelessWidget {
         ),
         icon: node.image,
         isChild: node.isChild,
+        isCritic: node.sensorType == "vibration",
+        isEnergy: node.sensorType == "energy",
         children: node.children.map((child) => TreeNodeWidget(node: child)).toList(),
       );
     }
